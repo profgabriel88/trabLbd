@@ -1,0 +1,14 @@
+create table motivo_cassacao(
+    dt_geracao date,
+    hh_geracao time,
+    ano_eleicao integer,
+    cd_tipo_eleicao integer,
+    nm_tipo_eleicao varchar(255),
+    cd_eleicao integer,
+    ds_eleicao varchar(255),
+    sg_uf varchar(2),
+    sg_ue varchar(2),
+    nm_ue varchar(255),
+    sq_candidato varchar(255),
+    ds_motivo_cassacao varchar(255),
+)
