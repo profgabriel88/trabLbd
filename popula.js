@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 
 const dir = path.join(__dirname);
-console.log(dir);
 
 var pg = require('pg');
 
@@ -13,43 +12,77 @@ pgClient.connect();
 
 async function conecta(query) {
   
-
-  var result = await pgClient.query(query);
-  
-  result.rows.forEach(row => {
-    console.log(row);
-  });
+  try {
+    var result = await pgClient.query(query);
+  }
+  catch (err) {
+    console.log(err)
+  }
 
 }
 
-async function leArquivos() {
-  await fs.readdir(dir, (err, data) => {
-    if (err) return console.log(err);
-    
-    
-    data.forEach(a => {
-      var ext = a.split('.');
-      
-      if(ext[0].includes('create') && ext[1] == 'txt')
-        execSql(a);
+var arquivosSql = [];
 
-      if (ext[1] == 'csv') {
-        leCsv(a);
-      }
+async function leArquivosSql() {
+  await fs.readdir(dir+'/sql', (err, data) => {
+    if (err) return console.log(err);
+
+    data.forEach(a => {
+      arquivosSql.push(a)
+      execSql('./sql/'+a);
+    })
+  });
+}
+async function leArquivosCsv() {
+  await fs.readdir(dir+'/csv', (err, data) => {
+    if (err) return console.log(err);
+    data.forEach(a => {
+        leCsv('./csv/'+a);
+        // console.log(arquivosSql);
     })
   });
 }
 
 async function leCsv(caminho) {
-  fs.readFile(caminho, (err, data) => {
+  await fs.readFile(caminho, (err, data) => {
     if (err) {
         console.log(err);
         return;
       }
+      var contador = 0;
+      var tabela = caminho.split('/');
       var linha = data.toString().split(/\r?\n/);
 
-      console.log(linha[0].toString());
-      console.log('\n');    
+      linha.forEach(l => {
+        contador++;
+        
+        l = l.replace(/"/g, '').replace(/,/g, '.');
+        
+        var dados = l.split(';');
+        l = '';
+        
+        dados.forEach((d, i) => {
+          if(d.includes('/') || d.includes(':')) {
+            l += `'${d}'`
+          // console.log(dados[i]);
+          // console.log('\n');
+        }
+        else if (!isNaN(parseInt(d)) && !isNaN(parseFloat(d)))
+          l += d;
+        else {
+          l += `'${d}'`;
+          // console.log(dados[i]);
+        }
+
+        if (i < dados.length-1)
+        l += ',';
+      });
+      
+      var insert = `insert into ${tabela[2].replace('.csv', '')} values (${l})`
+      conecta(insert);
+    });
+    console.log(tabela[2] + " " + contador);
+      // console.log('\n');
     });
 }
 
@@ -59,10 +92,14 @@ async function execSql(caminho) {
       if (err) {
           console.log(err);
           return;
-        }      
-        conecta(data.toString());
+        }
+        var linha = data.toString().split(/\r?\n/);
+
+      // console.log(linha[0].toString());      
+      conecta(data.toString());
       
       });
 }
 
-leArquivos();
+leArquivosSql();
+leArquivosCsv();
