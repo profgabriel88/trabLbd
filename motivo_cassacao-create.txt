@@ -1,4 +1,4 @@
-create table motivo_cassacao(
+create table if not exists motivo_cassacao(
     dt_geracao date,
     hh_geracao time,
     ano_eleicao integer,

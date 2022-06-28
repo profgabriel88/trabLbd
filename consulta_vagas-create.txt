@@ -1,4 +1,4 @@
-create table consulta_vagas(
+create table if not exists consulta_vagas(
     dt_geracao date,
     hh_geracao time,
     ano_eleicao integer,

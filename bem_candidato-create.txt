@@ -1,4 +1,4 @@
-create table bem_candidato (
+create table if not exists bem_candidato (
     dt_geracao date,
     hh_geracao time,
     ano_eleicao integer,

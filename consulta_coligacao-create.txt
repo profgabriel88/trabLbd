@@ -1,4 +1,4 @@
-create table consulta_coligacao(
+create table if not exists consulta_coligacao(
     dt_geracao date,
     hh_geracao time,
     ano_eleicao integer,

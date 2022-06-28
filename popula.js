@@ -25,15 +25,32 @@ async function conecta(query) {
 async function leArquivos() {
   await fs.readdir(dir, (err, data) => {
     if (err) return console.log(err);
-    console.log(data);
+    
     
     data.forEach(a => {
       var ext = a.split('.');
       
       if(ext[0].includes('create') && ext[1] == 'txt')
         execSql(a);
+
+      if (ext[1] == 'csv') {
+        leCsv(a);
+      }
     })
   });
+}
+
+async function leCsv(caminho) {
+  fs.readFile(caminho, (err, data) => {
+    if (err) {
+        console.log(err);
+        return;
+      }
+      var linha = data.toString().split(/\r?\n/);
+
+      console.log(linha[0].toString());
+      console.log('\n');    
+    });
 }
 
 async function execSql(caminho) {
@@ -42,9 +59,7 @@ async function execSql(caminho) {
       if (err) {
           console.log(err);
           return;
-        }
-        console.log(data.toString())
-      
+        }      
         conecta(data.toString());
       
       });

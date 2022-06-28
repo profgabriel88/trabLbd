@@ -1,4 +1,4 @@
-create table consulta_cand (    
+create table if not exists consulta_cand (    
     dt_geracao date,
     hh_geracao time,
     ano_eleicao integer,
