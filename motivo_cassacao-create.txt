@@ -10,5 +10,5 @@ create table motivo_cassacao(
     sg_ue varchar(2),
     nm_ue varchar(255),
     sq_candidato varchar(255),
-    ds_motivo_cassacao varchar(255),
+    ds_motivo_cassacao varchar(255)
 )

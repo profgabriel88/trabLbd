@@ -37,7 +37,7 @@ create table consulta_cand (
     sg_uf_nascimento varchar(2),
     cd_municipio_nascimento integer,
     nm_municipio_nascimento varchar(255),
-    dt_nascimento date
+    dt_nascimento date,
     nr_idade_data_posse date,
     nr_titulo_eleitoral_candidato varchar(255),
     cd_genero integer,

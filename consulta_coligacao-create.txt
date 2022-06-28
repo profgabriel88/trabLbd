@@ -4,8 +4,8 @@ create table consulta_coligacao(
     ano_eleicao integer,
     cd_tipo_eleicao int,
     nm_tipo_eleicao varchar(255),
-    nr_turno integer
-    cd_eleicao integer
+    nr_turno integer,
+    cd_eleicao integer,
     ds_eleicao varchar(255),
     dt_eleicao varchar(255),
     sg_uf varchar(2),
