@@ -1,21 +1,19 @@
-DT_GERACAO - 05/06/2022    ----- '05/06/2022'
-HH_GERACAO - 02:11:34    ----- '02:11:34'
-ANO_ELEICAO - 2020    ----- 2020
-CD_TIPO_ELEICAO - 2    ----- 2
-NM_TIPO_ELEICAO - Elei��o Ordin�ria    ----- 'Elei��o Ordin�ria'
-CD_ELEICAO - 426    ----- 426
-DS_ELEICAO - Elei��es Municipais 2020    ----- 'Elei��es Municipais 2020'
-DT_ELEICAO - 15/11/2020    ----- '15/11/2020'
-SG_UF - MS    ----- 'MS'
-SG_UE - 98035    ----- 98035
-NM_UE - COSTA RICA    ----- 'COSTA RICA'
-SQ_CANDIDATO - 120000633197    ----- 120000633197
-NR_ORDEM_CANDIDATO - 1    ----- 1
-CD_TIPO_BEM_CANDIDATO - 12    ----- 12
-DS_TIPO_BEM_CANDIDATO - Casa    ----- 'Casa'
-DS_BEM_CANDIDATO - Im�vel Residencial L-R28B Chacara 46 - Costa Rica MS em comum com esposa.    ----- 'Im�vel Residencial L-R28B Chacara 46 - Costa Rica MS em comum com esposa.'
-VR_BEM_CANDIDATO - 200000    ----- 200000
-00    ----- 00
-DT_ULTIMA_ATUALIZACAO - 19/11/2020    ----- '19/11/2020'
-HH_ULTIMA_ATUALIZACAO - 10:57:26    ----- '10:57:26')
-
+date
+time
+integer
+integer
+varchar(255)
+integer
+varchar(255)
+date
+varchar(255)
+varchar(255)
+varchar(255)
+varchar(255)
+integer
+integer
+varchar(255)
+varchar(255)
+money
+date
+time

@@ -1,13 +1,12 @@
-DT_GERACAO - 05/06/2022
-HH_GERACAO - 02:18:03
-ANO_ELEICAO - 2020
-CD_TIPO_ELEICAO - 2
-NM_TIPO_ELEICAO - Elei��o Ordin�ria
-CD_ELEICAO - 426
-DS_ELEICAO - Elei��es Municipais 2020
-SG_UF - MS
-SG_UE - 90298
-NM_UE - BANDEIRANTES
-SQ_CANDIDATO - 120001093729
-DS_MOTIVO_CASSACAO - Ficha limpa (LC 64/90)
-
+date
+time
+integer
+integer
+varchar(255)
+integer
+varchar(255)
+varchar(255)
+varchar(255)
+varchar(255)
+varchar(255)
+varchar(255)
